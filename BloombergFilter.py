@@ -81,7 +81,7 @@ for filename, df in cleaned_data.items():
     if combined_df.empty:
         combined_df = temp_df
     else:
-        combined_df = pd.merge(combined_df, temp_df, on='Date', how='outer') # extracts the price, and joins on the outside to match the format
+        combined_df = pd.merge(combined_df, temp_df, on='Date', how='outer') # extracts the price, and joins on the right to match the format
 
 combined_file_path = os.path.join(cleaned_dir, 'Combined_data.xlsx')
 combined_df.to_excel(combined_file_path, index=False)
