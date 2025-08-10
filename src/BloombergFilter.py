@@ -46,12 +46,15 @@ def clean_bloomberg_excel(file_path):
 
 
 ### Below is the script to clean all (EXCEL) files in a folder
+script_dir = os.path.dirname(os.path.abspath(__file__))  # Utils/
+project_root = os.path.dirname(script_dir)  # Root project directory
 
-raw_dir = "raw_Dat"         # Folder with raw Excel files
-cleaned_dir = "clean_Dat"     # Folder to save cleaned Excel files
+raw_dir = os.path.join(project_root, "Raw_Dat")  # Folder with raw Excel files
+cleaned_dir = os.path.join(project_root, "Clean_Dat")   # Folder to save cleaned Excel files
+os.makedirs(cleaned_dir, exist_ok=True) # Make sure output folder exists, else creates
 cleaned_data = {}
 
-os.makedirs(cleaned_dir, exist_ok=True) # Make sure output folder exists, else creates
+
 
 # Process each .xlsx file
 for filename in os.listdir(raw_dir):
